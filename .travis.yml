@@ -223,12 +223,6 @@ jobs:
         - CI_THREAD_INDEX=3.2x-electron
         - BASE_URL=https://valor-software.com/ngx-bootstrap/#/
       <<: *testPostDeploy
-    - script:
-      name: "Cypress on gh-pages after deploy 3thread"
-      env:
-        - CI_THREAD_INDEX=3.3x-electron
-        - BASE_URL=https://valor-software.com/ngx-bootstrap/#/
-      <<: *testPostDeploy
 #      if: tag =~ ^v\d+
 #temporary
 
