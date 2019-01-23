@@ -334,6 +334,7 @@ export class ComponentLoader<T> {
     if (!this._zoneSubscription) {
       return;
     }
+
     this._zoneSubscription.unsubscribe();
     this._zoneSubscription = null;
   }

@@ -34,39 +34,33 @@ export interface PositioningOptions {
   appendToBody?: boolean;
 }
 
+export class PositionRegistry {
+  private _instances: {[propName: string]: Selection} = {};
+
+
+  getInstance(key: string): Selection {
+    if (!this._instances[key]) {
+      this._instances[key] = new Selection();
+    }
+
+    return this._instances[key];
+  }
+}
+
 @Injectable()
 export class PositioningService {
   position(options: PositioningOptions): void {
     const {element, target, attachment, appendToBody} = options;
 
-    requestAnimationFrame(() => {
-      positionElements(
-        _getHtmlElement(target),
-        _getHtmlElement(element),
-        attachment,
-        appendToBody
-      );
-    });
-
-    addEventListener('scroll', () => {
-      positionElements(
-        _getHtmlElement(target),
-        _getHtmlElement(element),
-        attachment,
-        appendToBody
-      );
-    });
-
-    addEventListener('resize', () => {
-      positionElements(
-        _getHtmlElement(target),
-        _getHtmlElement(element),
-        attachment,
-        appendToBody
-      );
-    });
+    positionElements(
+      _getHtmlElement(target),
+      _getHtmlElement(element),
+      attachment,
+      appendToBody
+    );
   }
 
+  unsubscribe(targetElement): void {  }
 }
 
 function _getHtmlElement(element: HTMLElement | ElementRef | string): HTMLElement {
