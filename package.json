@@ -47,7 +47,8 @@
     "serve:dynamic": "node demo/dist/server",
     "build:client-and-server-bundles": "ng build --prod && ng run ngx-bootstrap:server",
     "webpack:server": "webpack --config ./scripts/universal/webpack.server.config.js --progress --colors",
-    "configure-heroku": "node scripts/universal/configure-heroku.js"
+    "configure-heroku": "node scripts/universal/configure-heroku.js",
+    "postinstall": "npm run build"
   },
   "husky": {
     "hooks": {
