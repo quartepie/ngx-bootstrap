@@ -15911,9 +15911,9 @@ class BsDatepickerInputDirective {
             this.changeDetection.markForCheck();
         });
         // update input value on locale change
-        this._localeService.localeChange.subscribe(() => {
-            this._setInputValue(this._value);
-        });
+        // this._localeService.localeChange.subscribe(() => {
+        //   this._setInputValue(this._value);
+        // });
     }
     _setInputValue(value) {
         const initialDate = !value ? ''
